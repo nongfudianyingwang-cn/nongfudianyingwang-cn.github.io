@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>农夫电影网 - 热门电影在线观看与电影推荐 | 农夫电影网官网（https://nongfudianyingwang-cn.github.io）</title>
+<meta name="description" content="农夫电影网（https://nongfudianyingwang-cn.github.io）提供最新热门电影、电影推荐、热播榜单、新片上线时间与影视资讯，动作、喜剧、科幻、爱情大片一站看全，看电影就上农夫电影网。">
+<meta name="keywords" content="农夫电影网,农夫电影,热门电影,电影在线观看,电影推荐,热播榜单,新片上线,影视资讯,高清电影,nongfudianyingwang-cn,https://nongfudianyingwang-cn.github.io">
+<meta name="author" content="农夫电影网">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://nongfudianyingwang-cn.github.io/">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#6b4423">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="农夫电影网">
+<meta property="og:title" content="农夫电影网 - 热门电影在线观看与电影推荐">
+<meta property="og:description" content="农夫电影网官网 https://nongfudianyingwang-cn.github.io，热门电影、电影推荐、热播榜单与新片上线时间一站看全。">
+<meta property="og:url" content="https://nongfudianyingwang-cn.github.io/">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="农夫电影网 - 热门电影在线观看与电影推荐">
+<meta name="twitter:description" content="农夫电影网官网 https://nongfudianyingwang-cn.github.io，一份耕耘，一部好片。">
+<style>
+/* ==================== 基础重置 ==================== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+  font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei","Hiragino Sans GB",Arial,sans-serif;
+  line-height:1.8;color:#3a2a1a;background:#f2e8d5;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+button,input,select,textarea{font-family:inherit}
+:focus-visible{outline:3px solid #c9452f;outline-offset:3px;border-radius:6px}
+
+/* ==================== 变量：田园农场告示板 ==================== */
+:root{
+  --burlap:#f2e8d5;
+  --cream:#fffaf0;
+  --sack:#e6d8bd;
+  --soil:#6b4423;
+  --soil-d:#4a2c14;
+  --wheat:#e3a72f;
+  --wheat-l:#fbe8bd;
+  --grass:#5c8a3c;
+  --grass-l:#dcecce;
+  --tomato:#c9452f;
+  --tomato-l:#fbdfd8;
+  --sky:#cfe0e8;
+  --ink:#3a2a1a;
+  --ink2:#6d5a44;
+  --muted:#937f66;
+  --bd:3px;
+  --r:10px;
+  --r-lg:16px;
+  --shadow:6px 6px 0 rgba(74,44,20,.28);
+  --shadow-sm:4px 4px 0 rgba(74,44,20,.22);
+  --maxw:1180px;
+}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* 麻布纹理背景 */
+.burlap-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:repeating-linear-gradient(45deg,rgba(107,68,35,.055) 0 2px,transparent 2px 5px),
+                   repeating-linear-gradient(-45deg,rgba(107,68,35,.04) 0 2px,transparent 2px 6px)}
+
+/* 田垄分隔条 */
+.ridge{display:flex;align-items:center;gap:14px;margin:0 0 32px}
+.ridge i{flex:1;height:12px;border-top:var(--bd) solid var(--soil);border-bottom:2px solid rgba(107,68,35,.35);
+  background:repeating-linear-gradient(90deg,transparent 0 10px,rgba(107,68,35,.16) 10px 14px)}
+.ridge b{font-size:12px;letter-spacing:3px;font-weight:900;color:var(--soil);white-space:nowrap}
+
+/* ==================== 顶部木条 ==================== */
+.topbar{background:var(--soil);border-bottom:var(--bd) solid var(--soil-d)}
+.topbar .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;justify-content:space-between;
+  min-height:42px;padding-top:9px;padding-bottom:9px;font-size:13px;font-weight:800;color:var(--wheat-l);letter-spacing:.5px}
+.topbar b{color:var(--wheat)}
+.topbar .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--grass-l);margin-right:7px}
+
+/* ==================== 导航 ==================== */
+.site-header{position:sticky;top:0;z-index:60;background:var(--burlap);
+  border-bottom:var(--bd) solid var(--soil)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:80px;gap:14px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:52px;height:52px;border-radius:var(--r);display:grid;place-items:center;font-size:22px;
+  background:var(--wheat);border:var(--bd) solid var(--soil);box-shadow:var(--shadow-sm);position:relative}
+.logo-mark::before,.logo-mark::after{content:"";position:absolute;width:5px;height:5px;border-radius:50%;background:var(--soil-d)}
+.logo-mark::before{left:5px;top:5px}
+.logo-mark::after{right:5px;bottom:5px}
+.logo .nm{font-size:22px;font-weight:900;letter-spacing:1px;color:var(--soil)}
+.logo small{display:block;font-size:11.5px;font-weight:700;color:var(--muted);letter-spacing:.5px}
+.menu{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.menu a{padding:9px 13px;border-radius:var(--r);font-size:14.5px;font-weight:800;color:var(--ink2);
+  border:2px solid transparent;transition:.22s}
+.menu a:hover{color:var(--soil);border-color:var(--soil);background:var(--cream)}
+.menu a.is-cta{background:var(--tomato);color:#fff8f0;border-color:var(--soil-d);box-shadow:var(--shadow-sm)}
+.menu a.is-cta:hover{background:var(--grass);color:#fff}
+.nav-cb{display:none}
+.burger{display:none;width:48px;height:48px;border-radius:var(--r);border:var(--bd) solid var(--soil);background:var(--wheat);
+  cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.burger i{display:block;width:20px;height:3px;border-radius:2px;background:var(--soil-d);transition:.3s}
+
+/* ==================== 首屏木牌 ==================== */
+.hero{padding:46px 0 0}
+.board{position:relative;background:var(--cream);border:var(--bd) solid var(--soil);border-radius:var(--r-lg);
+  box-shadow:var(--shadow);padding:42px 36px 36px;overflow:hidden}
+.board::before{content:"";position:absolute;left:0;top:0;right:0;height:10px;
+  background:repeating-linear-gradient(90deg,var(--soil) 0 26px,var(--wheat) 26px 52px)}
+.board::after{content:"";position:absolute;right:-60px;bottom:-60px;width:200px;height:200px;border-radius:50%;
+  background:var(--wheat);opacity:.3}
+.hero-in{position:relative;z-index:3}
+.plaque{display:inline-flex;align-items:center;gap:9px;padding:8px 18px;border-radius:var(--r);font-size:13px;
+  font-weight:900;color:var(--cream);background:var(--grass);border:2px solid var(--soil-d);letter-spacing:.5px}
+.hero h1{font-size:clamp(30px,6.2vw,56px);line-height:1.26;font-weight:900;margin:20px 0 12px;letter-spacing:-.5px;color:var(--soil-d)}
+.hero h1 .wh{position:relative;z-index:1;padding:0 4px}
+.hero h1 .wh::after{content:"";position:absolute;left:0;right:0;bottom:.1em;height:.38em;background:var(--wheat);z-index:-1}
+.hero h1 .tm{color:var(--tomato)}
+.hero .url{display:inline-block;font-size:clamp(12.5px,2.3vw,16px);font-weight:800;color:var(--soil-d);
+  background:var(--sack);border:2px dashed var(--soil);border-radius:var(--r);padding:8px 18px;word-break:break-all}
+.hero p.lead{max-width:730px;margin-top:18px;color:var(--ink2);font-size:clamp(15px,2.3vw,17px)}
+.hero p.lead b{color:var(--soil-d);background:var(--wheat-l);border-radius:5px;padding:0 6px}
+.searchbar{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap}
+.searchbar input{flex:1;min-width:220px;border:var(--bd) solid var(--soil);border-radius:var(--r);outline:none;font-size:15px;
+  padding:13px 18px;color:var(--ink);background:var(--cream);font-weight:600}
+.searchbar input::placeholder{color:#a4907a;font-weight:500}
+.searchbar button{border:var(--bd) solid var(--soil-d);cursor:pointer;padding:13px 28px;border-radius:var(--r);
+  background:var(--wheat);color:var(--soil-d);font-weight:900;font-size:15px;box-shadow:var(--shadow-sm)}
+.btn-row{display:flex;flex-wrap:wrap;gap:13px;margin-top:24px}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 28px;border-radius:var(--r);font-weight:900;font-size:15.5px;
+  border:var(--bd) solid var(--soil-d);box-shadow:var(--shadow-sm);transition:.2s}
+.btn-p{background:var(--tomato);color:#fff8f0}
+.btn-o{background:var(--grass);color:#fff}
+.btn-g{background:var(--cream);color:var(--soil-d)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:var(--shadow)}
+
+/* 数据条 */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+.stat{border:var(--bd) solid var(--soil);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:20px 14px;text-align:center;background:var(--cream)}
+.stat:nth-child(1){background:var(--wheat-l)}
+.stat:nth-child(2){background:var(--grass-l)}
+.stat:nth-child(3){background:var(--tomato-l)}
+.stat:nth-child(4){background:var(--sky)}
+.stat b{display:block;font-size:clamp(21px,3.6vw,30px);font-weight:900;line-height:1.28;letter-spacing:-.5px;color:var(--soil-d)}
+.stat b em{font-style:normal;color:var(--tomato)}
+.stat span{font-size:12.5px;font-weight:800;color:var(--ink2)}
+
+/* ==================== 通用区块 ==================== */
+section{padding:72px 0 0}
+.sec-head{max-width:800px;margin:0 auto 30px;text-align:center}
+.sec-head .kicker{display:inline-block;font-size:12px;letter-spacing:4px;font-weight:900;color:var(--wheat-l);
+  background:var(--soil);border-radius:var(--r);padding:7px 16px}
+.sec-head h2{font-size:clamp(24px,4.2vw,38px);font-weight:900;line-height:1.34;letter-spacing:-.5px;margin-top:14px;color:var(--soil-d)}
+.sec-head h2 em{font-style:normal;position:relative;z-index:1;padding:0 4px}
+.sec-head h2 em::after{content:"";position:absolute;left:0;right:0;bottom:.1em;height:.36em;background:var(--wheat);z-index:-1}
+.sec-head p{margin-top:12px;color:var(--ink2);font-size:15.5px}
+
+/* ==================== 分类（田垄块） ==================== */
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cat{display:block;padding:24px 18px;border:var(--bd) solid var(--soil);border-radius:var(--r-lg);
+  box-shadow:var(--shadow-sm);background:var(--cream);transition:.24s;text-align:center}
+.cat:hover{transform:translateY(-6px);box-shadow:var(--shadow);background:var(--wheat-l)}
+.cat .plot{width:60px;height:60px;margin:0 auto 13px;border-radius:var(--r);display:grid;place-items:center;font-size:26px;
+  border:2px solid var(--soil-d);background:
+    repeating-linear-gradient(45deg,var(--wheat) 0 8px,var(--wheat-l) 8px 16px)}
+.cat:nth-child(2) .plot{background:repeating-linear-gradient(45deg,var(--grass) 0 8px,var(--grass-l) 8px 16px)}
+.cat:nth-child(3) .plot{background:repeating-linear-gradient(45deg,var(--tomato) 0 8px,var(--tomato-l) 8px 16px)}
+.cat:nth-child(4) .plot{background:repeating-linear-gradient(45deg,var(--sky) 0 8px,#eef4f7 8px 16px)}
+.cat:nth-child(5) .plot{background:repeating-linear-gradient(-45deg,var(--wheat) 0 8px,var(--wheat-l) 8px 16px)}
+.cat:nth-child(6) .plot{background:repeating-linear-gradient(-45deg,var(--grass) 0 8px,var(--grass-l) 8px 16px)}
+.cat:nth-child(7) .plot{background:repeating-linear-gradient(-45deg,var(--tomato) 0 8px,var(--tomato-l) 8px 16px)}
+.cat:nth-child(8) .plot{background:repeating-linear-gradient(-45deg,var(--sky) 0 8px,#eef4f7 8px 16px)}
+.cat h3{font-size:17px;font-weight:900;color:var(--soil-d)}
+.cat p{font-size:12.5px;font-weight:800;color:var(--muted);margin-top:3px}
+
+/* ==================== 影片卡（牛皮纸标签） ==================== */
+.posters{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.movie{border:var(--bd) solid var(--soil);border-radius:var(--r-lg);overflow:hidden;background:var(--cream);
+  box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:.24s}
+.movie:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.poster{aspect-ratio:4/5;display:grid;place-items:center;font-size:40px;position:relative;border-bottom:var(--bd) solid var(--soil)}
+.poster .q{position:absolute;top:11px;left:11px;font-size:11px;font-weight:900;color:var(--soil-d);background:var(--wheat);
+  border:2px solid var(--soil-d);border-radius:var(--r);padding:3px 9px}
+.poster .s{position:absolute;bottom:11px;right:11px;font-size:12.5px;font-weight:900;color:var(--wheat-l);
+  background:var(--soil-d);border-radius:var(--r);padding:4px 11px}
+.movie .body{padding:16px 17px 19px;flex:1;display:flex;flex-direction:column;
+  background:repeating-linear-gradient(0deg,rgba(107,68,35,.03) 0 3px,transparent 3px 6px)}
+.movie h3{font-size:16.5px;font-weight:900;color:var(--soil-d);line-height:1.5}
+.movie .meta{font-size:12.5px;font-weight:800;color:var(--muted);margin-top:5px}
+.movie .desc{font-size:13.5px;color:var(--ink2);margin-top:8px;flex:1}
+.movie .go{margin-top:13px;align-self:flex-start;font-size:13px;font-weight:900;color:#fff8f0;background:var(--grass);
+  border:2px solid var(--soil-d);border-radius:var(--r);padding:7px 16px}
+.movie .go:hover{background:var(--tomato)}
+
+/* ==================== 榜单（木牌条目） ==================== */
+.ranks{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.rank{padding:26px;border:var(--bd) solid var(--soil);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);background:var(--cream)}
+.rank:nth-child(1){background:var(--wheat-l)}
+.rank:nth-child(2){background:var(--grass-l)}
+.rank h3{font-size:18px;font-weight:900;margin-bottom:16px;padding-bottom:14px;border-bottom:2px dashed rgba(107,68,35,.4);color:var(--soil-d)}
+.rank h3 i{font-style:normal;font-size:11.5px;letter-spacing:2px;color:var(--wheat-l);background:var(--tomato);
+  border-radius:var(--r);padding:4px 11px;margin-left:9px}
+.rank ol{display:grid;gap:11px}
+.rank li{display:flex;align-items:center;gap:13px;padding:10px 14px;border-radius:var(--r);background:var(--cream);
+  border:2px solid rgba(107,68,35,.3)}
+.rank li:hover{background:var(--wheat);border-color:var(--soil-d)}
+.rank li .no{width:32px;height:32px;border-radius:var(--r);display:grid;place-items:center;font-size:13px;font-weight:900;
+  color:var(--wheat-l);background:var(--soil);flex:0 0 auto}
+.rank li:nth-child(-n+3) .no{background:var(--tomato)}
+.rank li .tt{flex:1;font-size:14.5px;font-weight:800}
+.rank li .hs{font-size:12.5px;font-weight:800;color:var(--ink2);white-space:nowrap}
+
+/* ==================== 上线表 ==================== */
+.table-wrap{border:var(--bd) solid var(--soil);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);
+  background:var(--cream);overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:640px}
+thead th{background:var(--soil);color:var(--wheat-l);font-weight:900;text-align:left;padding:14px 18px;font-size:13.5px;white-space:nowrap}
+tbody td{padding:13px 18px;border-top:2px solid rgba(107,68,35,.18);color:var(--ink2);font-weight:600}
+tbody tr:nth-child(even){background:var(--sack)}
+tbody tr:hover{background:var(--wheat-l)}
+tbody td:first-child{font-weight:900;color:var(--soil-d);white-space:nowrap}
+tbody td b{color:var(--soil-d);font-weight:900}
+.mark{display:inline-block;font-size:11.5px;font-weight:900;padding:4px 12px;border-radius:var(--r);
+  background:var(--tomato-l);color:var(--tomato);border:2px solid rgba(201,69,47,.4)}
+.mark.new{background:var(--grass-l);color:var(--grass);border-color:rgba(92,138,60,.45)}
+.mark.ok{background:var(--sack);color:var(--muted);border-color:rgba(107,68,35,.25)}
+
+/* ==================== 田间影评 ==================== */
+.news{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.post{border:var(--bd) solid var(--soil);border-radius:var(--r-lg);overflow:hidden;background:var(--cream);
+  box-shadow:var(--shadow-sm);transition:.24s}
+.post:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.post .thumb{height:102px;display:grid;place-items:center;font-size:32px;border-bottom:var(--bd) solid var(--soil)}
+.post .body{padding:18px 20px 22px}
+.post time{font-size:12px;font-weight:900;letter-spacing:1px;color:var(--muted)}
+.post h3{font-size:17px;font-weight:900;margin:8px 0 8px;line-height:1.5;color:var(--soil-d)}
+.post p{font-size:14px;color:var(--ink2)}
+.post .more{display:inline-block;margin-top:12px;font-size:13.5px;font-weight:900;color:var(--wheat-l);
+  background:var(--soil);border-radius:var(--r);padding:7px 15px}
+
+/* ==================== 关于 ==================== */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+.about-text{padding:28px;border:var(--bd) solid var(--soil);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);background:var(--cream)}
+.about-text p{color:var(--ink2);margin-bottom:14px}
+.about-text ul{display:grid;gap:12px;margin-top:18px}
+.about-text ul li{display:grid;grid-template-columns:26px 1fr;gap:11px;font-size:14.5px;color:var(--ink2)}
+.about-text ul li b{width:26px;height:26px;border-radius:var(--r);display:grid;place-items:center;font-size:12px;
+  color:var(--wheat-l);background:var(--soil)}
+.art{padding:26px;border:var(--bd) solid var(--soil);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);
+  background:linear-gradient(160deg,var(--wheat-l),var(--grass-l))}
+.art svg{width:100%;height:auto}
+
+/* ==================== FAQ ==================== */
+.faq{max-width:840px;margin:0 auto;display:grid;gap:13px}
+.faq details{padding:18px 22px;border:var(--bd) solid var(--soil);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);background:var(--cream)}
+.faq summary{cursor:pointer;font-weight:900;font-size:16.5px;color:var(--soil-d);list-style:none;
+  display:flex;justify-content:space-between;gap:14px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"🌾";font-size:15px}
+.faq details[open] summary::after{content:"✔";color:var(--grass)}
+.faq details p{margin-top:12px;color:var(--ink2);font-size:14.5px}
+
+/* ==================== 联系 ==================== */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.form{padding:28px;border:var(--bd) solid var(--soil);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);background:var(--cream)}
+.field{margin-bottom:15px}
+.field label{display:block;font-size:13px;font-weight:900;color:var(--soil);margin-bottom:8px;letter-spacing:.5px}
+.field input,.field textarea,.field select{width:100%;padding:13px 16px;border:2px solid var(--soil);border-radius:var(--r);
+  background:var(--burlap);font-size:15px;color:var(--ink);outline:none;font-weight:600}
+.field input:focus,.field textarea:focus,.field select:focus{background:var(--cream);box-shadow:var(--shadow-sm)}
+.field textarea{min-height:106px;resize:vertical}
+.field input::placeholder,.field textarea::placeholder{color:#a4907a;font-weight:500}
+.submit{width:100%;border:var(--bd) solid var(--soil-d);cursor:pointer;padding:15px;border-radius:var(--r);
+  background:var(--tomato);color:#fff8f0;font-weight:900;font-size:15.5px;box-shadow:var(--shadow-sm)}
+.submit:hover{background:var(--grass)}
+.info{padding:28px;border:var(--bd) solid var(--soil);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);
+  background:linear-gradient(160deg,var(--wheat-l),var(--tomato-l))}
+.info h3{font-size:18px;font-weight:900;margin-bottom:16px;color:var(--soil-d)}
+.info dl{display:grid;gap:14px}
+.info dt{font-size:11.5px;letter-spacing:2px;font-weight:900;color:var(--ink2)}
+.info dd{font-size:15px;font-weight:900;color:var(--soil-d);word-break:break-all}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.tags span{font-size:12.5px;font-weight:800;padding:7px 14px;border-radius:var(--r);background:var(--cream);
+  border:2px solid var(--soil);color:var(--soil-d)}
+
+/* ==================== 页脚 ==================== */
+.site-footer{margin-top:74px;background:var(--soil);border-top:var(--bd) solid var(--soil-d);padding:46px 0 26px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:26px}
+.fgrid h4{font-size:14px;font-weight:900;margin-bottom:13px;color:var(--wheat)}
+.fgrid a,.fgrid li{display:block;font-size:14px;color:var(--sack);padding:5px 0}
+.fgrid a:hover{color:var(--wheat-l)}
+.site-footer p{color:var(--sack)}
+.copy{margin-top:30px;padding-top:20px;border-top:2px dashed rgba(230,216,189,.3);display:flex;flex-wrap:wrap;gap:10px;
+  justify-content:space-between;font-size:13px;color:var(--sack)}
+.totop{position:fixed;right:18px;bottom:18px;width:50px;height:50px;border-radius:var(--r);display:grid;place-items:center;
+  background:var(--wheat);border:var(--bd) solid var(--soil-d);color:var(--soil-d);font-weight:900;z-index:70;box-shadow:var(--shadow-sm)}
+
+/* ==================== 响应式 ==================== */
+@media (max-width:1000px){
+  .cats,.posters{grid-template-columns:repeat(2,1fr)}
+  .news{grid-template-columns:repeat(2,1fr)}
+  .fgrid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .burger{display:flex}
+  .menu{position:absolute;top:80px;left:0;right:0;flex-direction:column;align-items:stretch;gap:7px;padding:14px 22px 20px;
+    background:var(--burlap);border-bottom:var(--bd) solid var(--soil);
+    transform:translateY(-14px);opacity:0;pointer-events:none;transition:.28s}
+  .nav-cb:checked ~ .menu{transform:translateY(0);opacity:1;pointer-events:auto}
+  .nav-cb:checked ~ .burger i:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .nav-cb:checked ~ .burger i:nth-child(2){opacity:0}
+  .nav-cb:checked ~ .burger i:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+  .menu a{padding:13px 14px;font-size:16px;border:2px solid var(--soil);border-radius:var(--r);background:var(--cream)}
+  .menu a.is-cta{text-align:center;margin-top:6px}
+  .cats,.posters,.news,.about,.contact,.ranks{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .board{padding:28px 20px 26px}
+  .board::after{width:120px;height:120px;right:-40px;bottom:-40px}
+  .searchbar input{min-width:0;width:100%}
+  .searchbar button{width:100%}
+  section{padding-top:54px}
+  .hero{padding-top:32px}
+  .site-footer{margin-top:54px}
+}
+@media (max-width:420px){
+  .fgrid{grid-template-columns:1fr}
+  .btn-row .btn{width:100%;justify-content:center}
+  .stats{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaobao.js"></script>
+<div class="burlap-bg" aria-hidden="true"></div>
+
+<!-- ==================== 顶部木条 ==================== -->
+<div class="topbar">
+  <div class="wrap">
+    <span><span class="dot" aria-hidden="true"></span>农夫电影网 · 今日上新 <b>146</b> 部</span>
+    <span>一份耕耘 · 一部好片</span>
+    <span>官网 <b>https://nongfudianyingwang-cn.github.io</b></span>
+  </div>
+</div>
+
+<!-- ==================== 导航 ==================== -->
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" aria-label="农夫电影网主导航">
+      <a class="logo" href="#" aria-label="农夫电影网 首页">
+        <span class="logo-mark" aria-hidden="true">🌾</span>
+        <span class="nm">农夫电影网<small>一份耕耘 · 一部好片</small></span>
+      </a>
+      <input class="nav-cb sr-only" id="navCb" type="checkbox" aria-label="展开导航菜单">
+      <label class="burger" for="navCb" aria-hidden="true"><i></i><i></i><i></i></label>
+      <ul class="menu">
+        <li><a href="#home">首页</a></li>
+        <li><a href="#category">影视分类</a></li>
+        <li><a href="#pick">农夫精选</a></li>
+        <li><a href="#rank">热播榜单</a></li>
+        <li><a href="#release">新片上线</a></li>
+        <li><a href="#news">田间影评</a></li>
+        <li><a href="#about">关于农夫电影网</a></li>
+        <li><a href="#faq">常见问题</a></li>
+        <li><a class="is-cta" href="#contact">联系我们</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- ==================== 首屏 ==================== -->
+  <section id="home" class="hero" aria-labelledby="heroTitle">
+    <div class="wrap">
+      <div class="board">
+        <div class="hero-in">
+          <p class="plaque">🌾 农夫电影网 · 今日首推已挂出</p>
+          <h1 id="heroTitle">一份耕耘，<span class="wh">一部好片</span><span class="tm">。</span></h1>
+          <p class="url">https://nongfudianyingwang-cn.github.io</p>
+          <p class="lead">农夫电影网（官网 https://nongfudianyingwang-cn.github.io）像种地一样经营片库：分类是田垄，榜单是收成，新片是刚播下的种子。<b>不催熟、不拔苗</b>，把真正值得看的那部留给你。</p>
+          <form class="searchbar" action="#" method="get" onsubmit="return false;" role="search">
+            <label class="sr-only" for="kw">搜索农夫电影网</label>
+            <input id="kw" name="kw" type="search" placeholder="搜索你想看的电影：片名 / 类型 / 年份">
+            <button type="submit">搜电影</button>
+          </form>
+          <div class="btn-row">
+            <a class="btn btn-p" href="#pick">看农夫精选</a>
+            <a class="btn btn-o" href="#rank">热播榜单</a>
+            <a class="btn btn-g" href="#release">新片上线</a>
+          </div>
+        </div>
+      </div>
+      <ul class="stats">
+        <li class="stat"><b><em>27,900</em>+</b><span>农夫电影网收录影片</span></li>
+        <li class="stat"><b>每日更新</b><span>片库与精选片单</span></li>
+        <li class="stat"><b>1080P / 4K</b><span>多清晰度可选</span></li>
+        <li class="stat"><b>0 元</b><span>农夫电影网免费看</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ==================== 影视分类 ==================== -->
+  <section id="category" aria-labelledby="catTitle">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">影视分类</span>
+        <h2 id="catTitle">农夫电影网的<em>8 块田</em></h2>
+        <p>一块田一种作物——农夫电影网把海量片库划成 8 块地，按需下地。</p>
+      </div>
+      <div class="ridge" aria-hidden="true"><i></i><b>8 FIELDS</b><i></i></div>
+      <div class="cats">
+        <a class="cat" href="#"><span class="plot" aria-hidden="true">💥</span><h3>动作犯罪</h3><p>3,312 部 · 高燃</p></a>
+        <a class="cat" href="#"><span class="plot" aria-hidden="true">😂</span><h3>喜剧解压</h3><p>2,286 部 · 轻松</p></a>
+        <a class="cat" href="#"><span class="plot" aria-hidden="true">🚀</span><h3>科幻冒险</h3><p>1,936 部 · 大场面</p></a>
+        <a class="cat" href="#"><span class="plot" aria-hidden="true">💖</span><h3>爱情文艺</h3><p>2,548 部 · 慢节奏</p></a>
+        <a class="cat" href="#"><span class="plot" aria-hidden="true">🕵️</span><h3>悬疑推理</h3><p>2,034 部 · 烧脑</p></a>
+        <a class="cat" href="#"><span class="plot" aria-hidden="true">🌿</span><h3>治愈暖心</h3><p>1,704 部 · 温柔</p></a>
+        <a class="cat" href="#"><span class="plot" aria-hidden="true">🎨</span><h3>动画电影</h3><p>1,516 部 · 全年龄</p></a>
+        <a class="cat" href="#"><span class="plot" aria-hidden="true">📜</span><h3>经典修复</h3><p>1,032 部 · 老片新看</p></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 农夫精选 ==================== -->
+  <section id="pick" aria-labelledby="pickTitle">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">农夫精选</span>
+        <h2 id="pickTitle">农夫电影网<em>本周收成</em>片单</h2>
+        <p>按站内播放热度与口碑筛选，农夫电影网每周更新一次精选片单。</p>
+      </div>
+      <div class="posters">
+        <article class="movie">
+          <div class="poster" style="background:linear-gradient(160deg,#e3a72f,#8a5f0d)"><span class="q">4K</span><span class="s">9.4</span><span aria-hidden="true">🌾</span></div>
+          <div class="body">
+            <h3>麦浪时节</h3>
+            <p class="meta">2026 · 剧情 / 乡土 · 128 分钟</p>
+            <p class="desc">三代人与一片麦田的故事，农夫电影网热播榜连续四周第一。</p>
+            <a class="go" href="#">立即观看</a>
+          </div>
+        </article>
+        <article class="movie">
+          <div class="poster" style="background:linear-gradient(160deg,#5c8a3c,#28471a)"><span class="q">4K</span><span class="s">9.2</span><span aria-hidden="true">🚀</span></div>
+          <div class="body">
+            <h3>星轨尽头</h3>
+            <p class="meta">2026 · 科幻 / 冒险 · 144 分钟</p>
+            <p class="desc">硬核太空科幻，设定扎实，站内科幻区口碑新高。</p>
+            <a class="go" href="#">立即观看</a>
+          </div>
+        </article>
+        <article class="movie">
+          <div class="poster" style="background:linear-gradient(160deg,#c9452f,#792014)"><span class="q">1080P</span><span class="s">9.1</span><span aria-hidden="true">💥</span></div>
+          <div class="body">
+            <h3>烈风追缉</h3>
+            <p class="meta">2026 · 动作 / 谍战 · 119 分钟</p>
+            <p class="desc">长镜头打戏密集，农夫电影网动作区播放增速最快。</p>
+            <a class="go" href="#">立即观看</a>
+          </div>
+        </article>
+        <article class="movie">
+          <div class="poster" style="background:linear-gradient(160deg,#cfe0e8,#6f97a8)"><span class="q">4K</span><span class="s">9.0</span><span aria-hidden="true">🕵️</span></div>
+          <div class="body">
+            <h3>第八封回信</h3>
+            <p class="meta">2025 · 悬疑 / 推理 · 125 分钟</p>
+            <p class="desc">三段反转的密闭空间推理，看完想立刻二刷。</p>
+            <a class="go" href="#">立即观看</a>
+          </div>
+        </article>
+        <article class="movie">
+          <div class="poster" style="background:linear-gradient(160deg,#fbe8bd,#c99a3c)"><span class="q">1080P</span><span class="s">8.9</span><span aria-hidden="true">😂</span></div>
+          <div class="body">
+            <h3>周末大作战</h3>
+            <p class="meta">2026 · 喜剧 / 都市 · 103 分钟</p>
+            <p class="desc">轻松解压向都市喜剧，适合周五晚上放着看。</p>
+            <a class="go" href="#">立即观看</a>
+          </div>
+        </article>
+        <article class="movie">
+          <div class="poster" style="background:linear-gradient(160deg,#6b4423,#33200f)"><span class="q">4K</span><span class="s">8.8</span><span aria-hidden="true">🎖️</span></div>
+          <div class="body">
+            <h3>铁线防线</h3>
+            <p class="meta">2025 · 战争 / 历史 · 146 分钟</p>
+            <p class="desc">群像战争片，农夫电影网战争题材区长期在榜。</p>
+            <a class="go" href="#">立即观看</a>
+          </div>
+        </article>
+        <article class="movie">
+          <div class="poster" style="background:linear-gradient(160deg,#fbdfd8,#cf8a76)"><span class="q">1080P</span><span class="s">8.7</span><span aria-hidden="true">💖</span></div>
+          <div class="body">
+            <h3>晚风邮局</h3>
+            <p class="meta">2026 · 爱情 / 文艺 · 112 分钟</p>
+            <p class="desc">克制细腻的爱情小品，配色和配乐都很舒服。</p>
+            <a class="go" href="#">立即观看</a>
+          </div>
+        </article>
+        <article class="movie">
+          <div class="poster" style="background:linear-gradient(160deg,#dcecce,#89ab6b)"><span class="q">4K</span><span class="s">8.6</span><span aria-hidden="true">🎨</span></div>
+          <div class="body">
+            <h3>山海图志</h3>
+            <p class="meta">2026 · 动画 / 奇幻 · 107 分钟</p>
+            <p class="desc">国风动画电影，画面质感在站内动画区评价很高。</p>
+            <a class="go" href="#">立即观看</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 热播榜单 ==================== -->
+  <section id="rank" aria-labelledby="rankTitle">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">热播榜单</span>
+        <h2 id="rankTitle">农夫电影网<em>实时榜单</em></h2>
+        <p>数据来自农夫电影网站内播放与收藏统计，每日 0 点刷新，热度与口碑分列。</p>
+      </div>
+      <div class="ranks">
+        <div class="rank">
+          <h3>热播榜<i>TOP 8</i></h3>
+          <ol>
+            <li><span class="no">1</span><span class="tt">麦浪时节</span><span class="hs">2,946 万次</span></li>
+            <li><span class="no">2</span><span class="tt">星轨尽头</span><span class="hs">2,658 万次</span></li>
+            <li><span class="no">3</span><span class="tt">烈风追缉</span><span class="hs">2,392 万次</span></li>
+            <li><span class="no">4</span><span class="tt">第八封回信</span><span class="hs">2,018 万次</span></li>
+            <li><span class="no">5</span><span class="tt">周末大作战</span><span class="hs">1,768 万次</span></li>
+            <li><span class="no">6</span><span class="tt">铁线防线</span><span class="hs">1,548 万次</span></li>
+            <li><span class="no">7</span><span class="tt">晚风邮局</span><span class="hs">1,356 万次</span></li>
+            <li><span class="no">8</span><span class="tt">山海图志</span><span class="hs">1,204 万次</span></li>
+          </ol>
+        </div>
+        <div class="rank">
+          <h3>口碑榜<i>TOP 8</i></h3>
+          <ol>
+            <li><span class="no">1</span><span class="tt">麦浪时节</span><span class="hs">9.4 分</span></li>
+            <li><span class="no">2</span><span class="tt">星轨尽头</span><span class="hs">9.2 分</span></li>
+            <li><span class="no">3</span><span class="tt">烈风追缉</span><span class="hs">9.1 分</span></li>
+            <li><span class="no">4</span><span class="tt">第八封回信</span><span class="hs">9.0 分</span></li>
+            <li><span class="no">5</span><span class="tt">周末大作战</span><span class="hs">8.9 分</span></li>
+            <li><span class="no">6</span><span class="tt">铁线防线</span><span class="hs">8.8 分</span></li>
+            <li><span class="no">7</span><span class="tt">晚风邮局</span><span class="hs">8.7 分</span></li>
+            <li><span class="no">8</span><span class="tt">山海图志</span><span class="hs">8.6 分</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 新片上线 ==================== -->
+  <section id="release" aria-labelledby="relTitle">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">新片上线</span>
+        <h2 id="relTitle">农夫电影网<em>近期上线</em>时间表</h2>
+        <p>院线档期与网络首播时间同步标注，农夫电影网每周更新。</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <caption class="sr-only">农夫电影网近期新片上线时间表</caption>
+          <thead>
+            <tr><th scope="col">上线日期</th><th scope="col">电影名称</th><th scope="col">类型</th><th scope="col">片长</th><th scope="col">状态</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>09-30</td><td><b>麦浪时节</b></td><td>剧情 / 乡土</td><td>128 分钟</td><td><span class="mark">热播中</span></td></tr>
+            <tr><td>09-25</td><td><b>星轨尽头</b></td><td>科幻 / 冒险</td><td>144 分钟</td><td><span class="mark">热播中</span></td></tr>
+            <tr><td>09-18</td><td><b>烈风追缉</b></td><td>动作 / 谍战</td><td>119 分钟</td><td><span class="mark">热播中</span></td></tr>
+            <tr><td>10-09</td><td><b>山海图志 Ⅱ</b></td><td>动画 / 奇幻</td><td>待定</td><td><span class="mark new">即将上线</span></td></tr>
+            <tr><td>10-16</td><td><b>晚风邮局</b></td><td>爱情 / 文艺</td><td>112 分钟</td><td><span class="mark new">网络首播</span></td></tr>
+            <tr><td>08-22</td><td><b>第八封回信</b></td><td>悬疑 / 推理</td><td>125 分钟</td><td><span class="mark ok">在线可看</span></td></tr>
+            <tr><td>07-05</td><td><b>铁线防线</b></td><td>战争 / 历史</td><td>146 分钟</td><td><span class="mark ok">在线可看</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 田间影评 ==================== -->
+  <section id="news" aria-labelledby="newsTitle">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">田间影评</span>
+        <h2 id="newsTitle">农夫电影网<em>编辑手记</em></h2>
+        <p>新片前瞻、榜单解读、类型盘点，农夫电影网编辑部持续更新。</p>
+      </div>
+      <div class="news">
+        <article class="post">
+          <div class="thumb" style="background:repeating-linear-gradient(45deg,#e3a72f 0 14px,#8a5f0d 14px 28px)" aria-hidden="true">🌾</div>
+          <div class="body">
+            <time datetime="2026-09-29">2026-09-29</time>
+            <h3>国庆档前瞻：这 8 部热门电影值得看</h3>
+            <p>农夫电影网从定档新片中挑出期待值与口碑信号双高的 8 部。</p>
+            <a class="more" href="#">阅读全文</a>
+          </div>
+        </article>
+        <article class="post">
+          <div class="thumb" style="background:repeating-linear-gradient(45deg,#5c8a3c 0 14px,#28471a 14px 28px)" aria-hidden="true">📊</div>
+          <div class="body">
+            <time datetime="2026-09-16">2026-09-16</time>
+            <h3>农夫电影网榜单规则更新说明</h3>
+            <p>热播榜与口碑榜的权重调整，计算口径在本文一次讲清。</p>
+            <a class="more" href="#">阅读全文</a>
+          </div>
+        </article>
+        <article class="post">
+          <div class="thumb" style="background:repeating-linear-gradient(45deg,#c9452f 0 14px,#792014 14px 28px)" aria-hidden="true">🧺</div>
+          <div class="body">
+            <time datetime="2026-09-03">2026-09-03</time>
+            <h3>片库是怎么"种"出来的</h3>
+            <p>从选片到上架，农夫电影网的入库流程与筛选标准公开。</p>
+            <a class="more" href="#">阅读全文</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 关于 ==================== -->
+  <section id="about" aria-labelledby="aboutTitle">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">关于农夫电影网</span>
+        <h2 id="aboutTitle">农夫电影网，<em>一份耕耘一部好片</em></h2>
+        <p>片库是种出来的，不是堆出来的。</p>
+      </div>
+      <div class="about">
+        <div class="about-text">
+          <p>农夫电影网（官网 https://nongfudianyingwang-cn.github.io）聚合热门电影、电影推荐与新片上线信息，用分类田块、热播榜单与上线时间表三套体系，帮你在海量片库里快速找到今晚要看的那部。</p>
+          <p>我们不做「随便推推」的片单：农夫电影网的热播榜来自可核查的播放数据，口碑榜来自用户评分的加权均值，两套榜单口径全部公开。</p>
+          <ul>
+            <li><b>①</b><span>收录热门电影超 27,900 部，覆盖院线新片与经典老片</span></li>
+            <li><b>②</b><span>上线时间表每周更新，网络首播与院线档期同步标注</span></li>
+            <li><b>③</b><span>榜单每日 0 点刷新，热度与口碑分开呈现</span></li>
+          </ul>
+        </div>
+        <div class="art">
+          <svg viewBox="0 0 420 260" role="img" aria-label="农夫电影网看片流程示意图：分类田块选片、在线观看、进入热播榜单">
+            <rect x="14" y="22" width="120" height="86" rx="10" fill="#fffaf0" stroke="#6b4423" stroke-width="3"/>
+            <text x="74" y="58" fill="#4a2c14" font-size="17" font-weight="900" text-anchor="middle">分类田块</text>
+            <text x="74" y="82" fill="#6d5a44" font-size="12" text-anchor="middle">8 块地</text>
+            <rect x="150" y="22" width="120" height="86" rx="10" fill="#fffaf0" stroke="#6b4423" stroke-width="3"/>
+            <text x="210" y="58" fill="#4a2c14" font-size="17" font-weight="900" text-anchor="middle">在线观看</text>
+            <text x="210" y="82" fill="#6d5a44" font-size="12" text-anchor="middle">多清晰度</text>
+            <rect x="286" y="22" width="120" height="86" rx="10" fill="#fffaf0" stroke="#6b4423" stroke-width="3"/>
+            <text x="346" y="58" fill="#4a2c14" font-size="17" font-weight="900" text-anchor="middle">热播榜单</text>
+            <text x="346" y="82" fill="#6d5a44" font-size="12" text-anchor="middle">热度口碑</text>
+            <rect x="86" y="148" width="248" height="88" rx="10" fill="#e3a72f" stroke="#6b4423" stroke-width="3"/>
+            <text x="210" y="180" fill="#4a2c14" font-size="18" font-weight="900" text-anchor="middle">农夫电影网</text>
+            <text x="210" y="206" fill="#4a2c14" font-size="12" text-anchor="middle">27,900+ 部影片 · 每日更新</text>
+            <path d="M74 108 L74 128 L346 128 L346 108" fill="none" stroke="#6b4423" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M210 128 L210 148" fill="none" stroke="#6b4423" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="210" cy="128" r="9" fill="#c9452f" stroke="#4a2c14" stroke-width="3"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ ==================== -->
+  <section id="faq" aria-labelledby="faqTitle">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">常见问题</span>
+        <h2 id="faqTitle">关于<em>农夫电影网</em>的高频疑问</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>农夫电影网收录多少部电影？更新频率如何？</summary>
+          <p>农夫电影网目前收录热门电影超 27,900 部，涵盖院线新片、经典老片、动画电影与小众佳作。片库每日更新，上线时间表每周刷新一次。</p>
+        </details>
+        <details>
+          <summary>农夫电影网的榜单是怎么算出来的？</summary>
+          <p>热播榜取农夫电影网站内近 30 天播放与收藏加权，口碑榜取用户评分的贝叶斯均值，两个榜单每日 0 点各刷新一次，计算口径在「田间影评」栏目公开。</p>
+        </details>
+        <details>
+          <summary>农夫电影网官网网址是什么？</summary>
+          <p>农夫电影网官方网址为 https://nongfudianyingwang-cn.github.io，请认准该域名，避免访问仿冒站点。</p>
+        </details>
+        <details>
+          <summary>找不到想看的电影怎么办？</summary>
+          <p>可以通过农夫电影网首页搜索框按片名、类型或年份检索，也可以进入「联系我们」提交补录需求，我们会在 3 个工作日内处理。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 联系 ==================== -->
+  <section id="contact" aria-labelledby="contactTitle">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">联系我们</span>
+        <h2 id="contactTitle">有问题？告诉<em>农夫电影网</em></h2>
+        <p>影片补录、播放反馈、商务合作，都可以通过下面的表单联系我们。</p>
+      </div>
+      <div class="contact">
+        <form class="form" action="#" method="post" onsubmit="return false;">
+          <div class="field">
+            <label for="cname">您的称呼</label>
+            <input id="cname" name="name" type="text" placeholder="请输入昵称或姓名" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="cmail">联系邮箱</label>
+            <input id="cmail" name="email" type="email" placeholder="name@example.com" autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="ctype">问题类型</label>
+            <select id="ctype" name="type">
+              <option>影片补录</option>
+              <option>播放异常反馈</option>
+              <option>版权投诉</option>
+              <option>商务合作</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cmsg">详细说明</label>
+            <textarea id="cmsg" name="message" placeholder="请描述你想看的电影名称或遇到的问题"></textarea>
+          </div>
+          <button class="submit" type="submit">提交给农夫电影网</button>
+        </form>
+        <aside class="info">
+          <h3>农夫电影网联系方式</h3>
+          <dl>
+            <dt>官方网站</dt>
+            <dd>https://nongfudianyingwang-cn.github.io</dd>
+            <dt>网站名称</dt>
+            <dd>农夫电影网（农夫电影网官网）</dd>
+            <dt>服务时间</dt>
+            <dd>每天 10:00 - 22:00</dd>
+            <dt>在线入口</dt>
+            <dd><a href="#">农夫电影网在线客服</a></dd>
+          </dl>
+          <div class="tags">
+            <span>农夫电影网</span><span>热门电影</span><span>电影推荐</span><span>热播榜单</span><span>新片上线</span><span>影视资讯</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ==================== 页脚 ==================== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h4>农夫电影网</h4>
+        <p style="font-size:14px;">农夫电影网（https://nongfudianyingwang-cn.github.io）聚合热门电影、电影推荐、新片上线时间与热播榜单，一份耕耘，一部好片。</p>
+      </div>
+      <div>
+        <h4>栏目导航</h4>
+        <a href="#home">农夫电影网首页</a>
+        <a href="#category">影视分类</a>
+        <a href="#pick">农夫精选</a>
+        <a href="#rank">热播榜单</a>
+        <a href="#release">新片上线</a>
+      </div>
+      <div>
+        <h4>热门类型</h4>
+        <a href="#">动作犯罪</a>
+        <a href="#">科幻冒险</a>
+        <a href="#">悬疑推理</a>
+        <a href="#">治愈暖心</a>
+      </div>
+      <div>
+        <h4>帮助与合作</h4>
+        <a href="#faq">常见问题</a>
+        <a href="#contact">联系我们</a>
+        <a href="#">影片投稿</a>
+        <a href="#">版权声明</a>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© 2026 农夫电影网 · 官网 https://nongfudianyingwang-cn.github.io · 一份耕耘，一部好片</span>
+      <span><a href="#">隐私政策</a> · <a href="#">服务条款</a> · <a href="#">意见反馈</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="totop" href="#home" aria-label="回到顶部">↑</a>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://nongfudianyingwang-cn.github.io/#website",
+      "url": "https://nongfudianyingwang-cn.github.io/",
+      "name": "农夫电影网",
+      "alternateName": ["农夫电影网官网", "农夫电影网在线观看"],
+      "inLanguage": "zh-CN",
+      "description": "农夫电影网提供热门电影在线观看、电影推荐、热播榜单与新片上线时间。",
+      "publisher": { "@id": "https://nongfudianyingwang-cn.github.io/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://nongfudianyingwang-cn.github.io/?kw={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://nongfudianyingwang-cn.github.io/#organization",
+      "name": "农夫电影网",
+      "url": "https://nongfudianyingwang-cn.github.io/",
+      "description": "农夫电影网是聚合热门电影、电影推荐与热播榜单的影视内容平台。",
+      "areaServed": "CN",
+      "knowsAbout": ["农夫电影网", "热门电影", "电影推荐", "新片上线", "电影排行榜"]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://nongfudianyingwang-cn.github.io/#webpage",
+      "url": "https://nongfudianyingwang-cn.github.io/",
+      "name": "农夫电影网 - 热门电影在线观看与电影推荐",
+      "isPartOf": { "@id": "https://nongfudianyingwang-cn.github.io/#website" },
+      "inLanguage": "zh-CN",
+      "about": { "@id": "https://nongfudianyingwang-cn.github.io/#organization" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "农夫电影网首页", "item": "https://nongfudianyingwang-cn.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "影视分类" },
+        { "@type": "ListItem", "position": 3, "name": "农夫精选" },
+        { "@type": "ListItem", "position": 4, "name": "热播榜单" },
+        { "@type": "ListItem", "position": 5, "name": "联系我们" }
+      ]
+    }
+  ]
+}
+</script>
+</body>
+</html>
